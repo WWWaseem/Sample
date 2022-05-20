@@ -1,0 +1,204 @@
+PARSER_BEGIN(Parse)
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.util.*;
+import java.io.FileNotFoundException;
+public class Parse {
+	public static ArrayList < TypeNode > typeNodes = new ArrayList();
+	public static String[] tokens={"int","return","void","while","if","main","else","write","read","for","{","}",";",",","num","var","(",")","[","]","!","*","/","%"
+	,"+","-","<","<=",">",">=","==","!=","&&","||","="};
+	public static HashMap<String,Integer> hashMap = new HashMap();
+	private static String outPath = "";
+	/** Main entry point. */
+	public static void main(String args[]) throws ParseException {
+	        //将种别码放入Hsah表
+	        for(int i=0;i<tokens.length;i++)
+	        {
+	            hashMap.put(tokens[i],i);
+	        }
+			String s = "";
+			try{
+			    s=args[args.length - 1];
+			}catch (Exception e){
+			    return;
+			}
+			DeleteComments deleteComments = new DeleteComments();
+			String inputstr = deleteComments.clearComment(s);
+            getStringStream inputs = new getStringStream();
+            InputStream inputstream = inputs.getStringStream2(inputstr);
+			Parse compiler = new Parse(inputstream);
+			try {
+				String result = "";
+				outPath = "src/mixed/test99.txt";
+				compiler.start();
+				for(int i=0;i<typeNodes.size();i++)
+                {
+                    System.out.println(typeNodes.get(i).toOutString());
+                }
+			} catch (ParseException e) {
+				System.err.println(e);
+			}
+	}
+}
+PARSER_END(Parse)
+
+/** 空字符过滤 */
+SKIP :
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+| <"//" (~["\n","\r"])* ("\n"|"\r"|"\r\n")>
+| <"/*" (~["*"])* "*" (~["/"] (~["*"])* "*")* "/">
+}
+
+/** TOKEN定义 */
+TOKEN: {
+	<
+	IF_TOKEN: "if" >
+		|
+		<
+		INT_TOKEN: "int" >
+		|
+		<
+		VOID_TOKEN: "void" >
+		|
+		<
+		ELSE_TOKEN: "else" >
+		|
+		<
+		MAIN_TOKEN: "main" >
+		|
+		<
+		WHILE_TOKEN: "while" >
+		|
+		<
+		FOR_TOKEN: "for" >
+		|
+		<
+		READ_TOKEN: "read" >
+		|
+		<
+		PRINTF_TOKEN: "write" >
+		|
+		<
+		RETURN_TOKEN: "return" >
+		|
+		<
+		ID_TOKEN: ["a" - "z", "A" - "Z", "_"](["a" - "z", "A" - "Z", "_", "0" - "9"]) * >
+		|
+		<
+		NUM_TOKEN: (["0" - "9"]) + >
+		|
+		<
+		COMMA_TOKEN: "," >
+		|
+		<
+		SEMICOLON_TOKEN: ";" >
+		|
+		<
+		PLUS_TOKEN: "+" >
+		|
+		<
+		MINUS_TOKEN: "-" >
+		|
+		<
+		TIMES_TOKEN: "*" >
+		|
+		<
+		MOD: "%" >
+		|
+		<
+		DIVIDE_TOKEN: "/" >
+		|
+		<
+		EQUAL_TOKEN: "=" >
+		|
+		<
+		LBRACE_TOKEN: "{" >
+		|
+		<
+		RBRACE_TOKEN: "}" >
+		|
+		<
+		LPAREN_TOKEN: "(" >
+		|
+		<
+		RPAREN_TOKEN: ")" >
+		|
+		< OR: "||" >
+		|
+		< AND: "&&" >
+		|
+		< XY: "<" >
+		|
+		< XYDY: "<=" >
+		|
+		< DY: ">" >
+		|
+		< DYDY: ">=" >
+		|
+		< YESDY: "==" >
+		|
+		< NOTDY: "!=" >
+}
+/** 程序入口.
+ * 匹配所有token,并存储Typenode
+ */
+void start():
+{
+    Token t;
+    String tt = "";
+}
+{
+	((t=<IF_TOKEN>|t=<WHILE_TOKEN>|t=<INT_TOKEN>|t=<VOID_TOKEN>|t=<ELSE_TOKEN>|t=<MAIN_TOKEN>|t=<FOR_TOKEN>|t=<READ_TOKEN>|t=<PRINTF_TOKEN>|t=<RETURN_TOKEN>|t=<COMMA_TOKEN>|t=<SEMICOLON_TOKEN>|t=<PLUS_TOKEN>|t=<MINUS_TOKEN>|t=<TIMES_TOKEN>|t=<MOD>|t=<DIVIDE_TOKEN>|t=<EQUAL_TOKEN>|t=<LBRACE_TOKEN>|t=<RBRACE_TOKEN>|t=<LPAREN_TOKEN> |t=<RPAREN_TOKEN>  |t=<OR> |t=<AND> |t=<XY> |t=<XYDY> |t=<DY> |t=<DYDY> |t=<YESDY> |t=<NOTDY>)
+	{
+        tt = t.image;
+        switch (tt){
+            //{"int","return","void","while","if","else","for","{","}",";",",","num","var","(",")","[","]","!","*","/","%","+","-","<","<=",">",">=","==","!=","&&","||","="}
+            case "int":     typeNodes.add(new TypeNode(MyTypeName.Keyword,t.image,hashMap.get(t.image)));break;
+            case "return":  typeNodes.add(new TypeNode(MyTypeName.Keyword,t.image,hashMap.get(t.image)));break;
+            case "void":    typeNodes.add(new TypeNode(MyTypeName.Keyword,t.image,hashMap.get(t.image)));break;
+            case "while":   typeNodes.add(new TypeNode(MyTypeName.Keyword,t.image,hashMap.get(t.image)));break;
+            case "main" :   typeNodes.add(new TypeNode(MyTypeName.Keyword,t.image,hashMap.get(t.image)));break;
+            case "read":    typeNodes.add(new TypeNode(MyTypeName.Keyword,t.image,hashMap.get(t.image)));break;
+            case "write":   typeNodes.add(new TypeNode(MyTypeName.Keyword,t.image,hashMap.get(t.image)));break;
+            case "if":      typeNodes.add(new TypeNode(MyTypeName.Keyword,t.image,hashMap.get(t.image)));break;
+            case "else":    typeNodes.add(new TypeNode(MyTypeName.Keyword,t.image,hashMap.get(t.image)));break;
+            case "for":     typeNodes.add(new TypeNode(MyTypeName.Keyword,t.image,hashMap.get(t.image)));break;
+            case "{":       typeNodes.add(new TypeNode(MyTypeName.Edge,t.image,hashMap.get(t.image)));break;
+            case "}":       typeNodes.add(new TypeNode(MyTypeName.Edge,t.image,hashMap.get(t.image)));break;
+            case ";":       typeNodes.add(new TypeNode(MyTypeName.Edge,t.image,hashMap.get(t.image)));break;
+            case ",":       typeNodes.add(new TypeNode(MyTypeName.Edge,t.image,hashMap.get(t.image)));break;
+            case "(":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case ")":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "[":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "]":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case"!":        typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "*":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "/":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "%":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "+":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "-":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "<":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "<=":      typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case ">":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case ">=":      typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "==":      typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "!=":      typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "&&":      typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "||":      typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            case "=":       typeNodes.add(new TypeNode(MyTypeName.Ope,t.image,hashMap.get(t.image)));break;
+            default:break;
+        }
+    }|(t=<ID_TOKEN>)
+    {
+        typeNodes.add(new TypeNode(MyTypeName.ID,t.image,hashMap.get("var")));
+    }|(t=<NUM_TOKEN>)
+    {
+        typeNodes.add(new TypeNode(MyTypeName.ID,t.image,hashMap.get("num")));
+    })*
+}
+

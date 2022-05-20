@@ -1,0 +1,14 @@
+Start
+ MainFunction
+  PartProgram
+   Word
+    WriteWord
+     Expression
+      logic_and
+       equality
+        comparison
+         add
+          Term
+           NotOrNeg
+            Factor
+Over

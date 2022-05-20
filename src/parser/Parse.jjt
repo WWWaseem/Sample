@@ -1,0 +1,323 @@
+options {
+    UNICODE_INPUT = true;
+    JDK_VERSION = "1.8";
+}
+PARSER_BEGIN(Compiler)
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.util.Scanner;
+public class Compiler {
+    /** Main entry point. */
+    public static void main(String args[]) {
+        try {
+            String fileName=args[args.length - 1];
+            DeleteComments deleteComments = new DeleteComments();
+            String input = deleteComments.clearComment(fileName);
+            getStringStream inputs = new getStringStream();
+            InputStream inputstream = inputs.getStringStream2(input);
+            Compiler t = new Compiler(inputstream);
+            try {
+                SimpleNode n = t.Start();
+                n.dump("");
+                System.out.println("Over");
+            } catch (Exception e) {
+                System.out.println("Oops.");
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+                			System.out.println( "目标文件不存在!");
+        }
+    }
+  }
+PARSER_END(Compiler)
+
+SKIP :
+{
+ 	" "
+|	"\r"
+|	"\t"
+|	"\n"
+|  <"//" (~["\r", "\n"])*>
+|   "/*" : COMMENTS
+}
+
+ <COMMENTS> SKIP :
+ {
+   "*/" : DEFAULT
+ | < ~[] >
+ }
+
+/** TOKEN定义 */
+TOKEN: {
+		<IF_TOKEN: "if" >
+		|
+        <CONST_TOKEN: "const" >
+		|
+		<INT_TOKEN: "int" >
+		|
+		<VOID_TOKEN: "void" >
+		|
+		<ELSE_TOKEN: "else" >
+		|
+		<MAIN_TOKEN: "main" >
+		|
+		<
+		WHILE_TOKEN: "while" >
+		|
+		<FOR_TOKEN: "for" >
+		|
+		<READ_TOKEN: "read" >
+		|
+		<PRINTF_TOKEN: "write" >
+		|
+		<RETURN_TOKEN: "return" >
+		|
+		<ID_TOKEN: ["a" - "z", "A" - "Z", "_"](["a" - "z", "A" - "Z", "_", "0" - "9"]) * >
+		|
+		<
+		NUM_TOKEN: (["0" - "9"]) + >
+		|
+		<COMMA_TOKEN: "," >
+		|
+		<SEMICOLON_TOKEN: ";" >
+		|
+		<PLUS_TOKEN: "+" >
+		|
+		<MINUS_TOKEN: "-" >
+		|
+		<NOT_TOKEN: "!" >
+        |
+		<TIMES_TOKEN: "*" >
+		|
+		<MOD: "%" >
+		|
+		<DIVIDE_TOKEN: "/" >
+		|
+		<EQUAL_TOKEN: "=" >
+		|
+		<LBRACE_TOKEN: "{" >
+		|
+		<RBRACE_TOKEN: "}" >
+		|
+		<LPAREN_TOKEN: "(" >
+		|
+		<RPAREN_TOKEN: ")" >
+		|
+		< OR: "||" >
+		|
+		< AND: "&&" >
+		|
+		< XY: "<" >
+		|
+		< XYDY: "<=" >
+		|
+		< DY: ">" >
+		|
+		< DYDY: ">=" >
+		|
+		< YESDY: "==" >
+		|
+		< NOTDY: "!=" >
+}
+/** 程序入口.
+ * 实现全局变量的定义
+ * 自定义函数的定义
+ * 主函数
+ */
+SimpleNode Start(): {} {
+	//[<变量定义部分>] {<自定义函数定义部分>} <主函数>
+	(LOOKAHEAD(3) VariableDefinition() < SEMICOLON_TOKEN > ) *
+	(LOOKAHEAD(3) FunctionDefinition()) *
+	MainFunction()
+    (LOOKAHEAD(3) VariableDefinition() < SEMICOLON_TOKEN > ) *
+    (LOOKAHEAD(3) FunctionDefinition()) *
+    { return jjtThis; }
+}
+
+/** 变量定义部分. */
+void VariableDefinition(): {} {
+    (<CONST_TOKEN>)?<INT_TOKEN><ID_TOKEN>
+    (<EQUAL_TOKEN> Choice())?
+    ( <COMMA_TOKEN> <ID_TOKEN> (<EQUAL_TOKEN> Choice() )? )*
+}
+/** 自定义函数定义部分. */
+void FunctionDefinition() :{}
+{
+    (<INT_TOKEN>
+    <ID_TOKEN>
+    |
+     <VOID_TOKEN>
+    <ID_TOKEN>)
+    <LPAREN_TOKEN> (ParaDefinition())?<RPAREN_TOKEN>
+    PartProgram()
+}
+/** 函数变量定义部分. */
+void ParaDefinition() :{}
+{
+    <INT_TOKEN>  <ID_TOKEN>
+    (<COMMA_TOKEN> <INT_TOKEN>  <ID_TOKEN>)*
+}
+/** 主函数部分 */
+void MainFunction() :{}
+{
+    <MAIN_TOKEN> <LPAREN_TOKEN> <RPAREN_TOKEN>
+    PartProgram()
+}
+
+/**
+ * 分程序部分
+ * 如果分程序为void且没有返回值，则自动补上返回值（退栈语句）
+ */
+void PartProgram():{}
+{
+    <LBRACE_TOKEN>
+    (Word())*
+    <RBRACE_TOKEN>
+}
+
+/** 语句 */
+void Word():
+{}
+{
+    //<条件语句>｜<循环语句> | '{'<语句序列>'}' | <自定义函数调用语句> |
+    //<赋值语句> | <返回语句> | <读语句> | <写语句> | ;
+    If_Word()
+    |
+    For_Word()
+    |
+    LOOKAHEAD(2)<LBRACE_TOKEN> (Word())* <RBRACE_TOKEN>
+    |
+    LOOKAHEAD(2)DefinitionFunction()
+    |
+    Equals_Word()
+    |
+    Return_Word()
+    |
+    WriteWord()
+    |
+    VariableDefinition() <SEMICOLON_TOKEN>
+    |
+    <SEMICOLON_TOKEN>
+}
+
+/** 条件语句 */
+void If_Word():{}
+{
+    //if '('<表达式>')' <语句> [else <语句> ]
+    <IF_TOKEN> <LPAREN_TOKEN>Expression()<RPAREN_TOKEN>
+    Word()
+    [LOOKAHEAD(2)<ELSE_TOKEN> Word()]
+}
+
+/** 循环语句 */
+void For_Word():{}
+{
+    //while '(' <表达式>')' <语句>
+    ( <WHILE_TOKEN><LPAREN_TOKEN> Expression()<RPAREN_TOKEN> Word())
+    |(<FOR_TOKEN><LPAREN_TOKEN>(Equals_Word())Expression()<SEMICOLON_TOKEN>(Equals_Word2())<RPAREN_TOKEN>Word())
+}
+
+/** 赋值语句 */
+void Equals_Word():{}
+{
+    //id = <表达式>;
+    <ID_TOKEN> <EQUAL_TOKEN>Choice()<SEMICOLON_TOKEN>
+}
+void Choice():{}
+{
+    Expression()
+    |
+    <READ_TOKEN> <LPAREN_TOKEN>  <RPAREN_TOKEN>
+}
+/** 赋值语句 */
+void Equals_Word2():{}
+{
+    //id = <表达式>;
+    <ID_TOKEN> <EQUAL_TOKEN> Expression()
+}
+
+/** 返回语句 */
+void Return_Word():{}
+{
+    //return ['(' <表达式> ')'] ;
+    <RETURN_TOKEN> [ Expression() {} ] <SEMICOLON_TOKEN>
+}
+
+/** 写语句 */
+void WriteWord():{}
+{
+    // printf '(' [ <表达式>] ')';
+    <PRINTF_TOKEN> <LPAREN_TOKEN> [Expression()] <RPAREN_TOKEN> <SEMICOLON_TOKEN>
+}
+
+void Expression() :{}
+{
+  logic_and()(  <OR> logic_and() )*
+}
+//逻辑与
+void logic_and():{}
+{
+    equality()( <AND> equality() )*
+}
+//逻辑等与不等
+void equality():{}
+{
+    comparison() ( (<YESDY>|<NOTDY>)comparison() )*
+
+}
+//逻辑判断 : 优先级低于加减
+void comparison():{}
+{
+    add()( (<XY>|<XYDY>|<DY>|<DYDY>)add() )*
+}
+
+
+/** 表达式 */
+void add():{}
+{
+    //[+｜-] <项> { (+｜-) <项>}
+    [<PLUS_TOKEN> | <MINUS_TOKEN> ] Term() ( ( <PLUS_TOKEN>|<MINUS_TOKEN>) Term())*
+}
+
+
+
+/** 项 */
+void Term():{}
+{
+    //<因子>｛(*｜/) <因子>｝
+     NotOrNeg() ( ( <TIMES_TOKEN>|<DIVIDE_TOKEN>|<MOD>)  NotOrNeg())*
+}
+
+void NotOrNeg():{}
+{
+    (<NOT_TOKEN> | <MINUS_TOKEN>)?
+    Factor()
+}
+
+/** 因子 */
+void Factor():{}
+{
+    //<自定义函数调用> | '(' <表达式>')' | num | id
+    LOOKAHEAD(2)DefinitionFunction()
+    |
+    <LPAREN_TOKEN> Expression() <RPAREN_TOKEN>
+    |
+    <NUM_TOKEN>
+    |
+    LOOKAHEAD(2)<ID_TOKEN>
+}
+
+
+/** 自定义函数调用 */
+void DefinitionFunction():{}
+{
+    //id '(' ')'
+    <ID_TOKEN><LPAREN_TOKEN>(loadValue())? <RPAREN_TOKEN>
+}
+/** 函数调用值 */
+void loadValue():{}
+{
+    Expression()(<COMMA_TOKEN> Expression() )*
+}

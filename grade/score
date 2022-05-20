@@ -1,0 +1,264 @@
+
+Now processing basic:1
+java -cp ./../src/lexer/ Parse ./../tests/basic/1.sample > ./../build/lex/output/basic/1.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/1.sample > ./../build/parse/output/basic/1.out
+
+Now processing basic:1
+java -cp ./../src/lexer/ Parse ./../tests/basic/1.sample > ./../build/lex/output/basic/1.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/1.sample > ./../build/parse/output/basic/1.out
+
+Now processing basic:10
+java -cp ./../src/lexer/ Parse ./../tests/basic/10.sample > ./../build/lex/output/basic/10.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/10.sample > ./../build/parse/output/basic/10.out
+
+Now processing basic:10
+java -cp ./../src/lexer/ Parse ./../tests/basic/10.sample > ./../build/lex/output/basic/10.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/10.sample > ./../build/parse/output/basic/10.out
+
+Now processing basic:11
+java -cp ./../src/lexer/ Parse ./../tests/basic/11.sample > ./../build/lex/output/basic/11.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/11.sample > ./../build/parse/output/basic/11.out
+
+Now processing basic:11
+java -cp ./../src/lexer/ Parse ./../tests/basic/11.sample > ./../build/lex/output/basic/11.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/11.sample > ./../build/parse/output/basic/11.out
+
+Now processing basic:12
+java -cp ./../src/lexer/ Parse ./../tests/basic/12.sample > ./../build/lex/output/basic/12.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/12.sample > ./../build/parse/output/basic/12.out
+
+Now processing basic:12
+java -cp ./../src/lexer/ Parse ./../tests/basic/12.sample > ./../build/lex/output/basic/12.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/12.sample > ./../build/parse/output/basic/12.out
+
+Now processing basic:13
+java -cp ./../src/lexer/ Parse ./../tests/basic/13.sample > ./../build/lex/output/basic/13.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/13.sample > ./../build/parse/output/basic/13.out
+
+Now processing basic:13
+java -cp ./../src/lexer/ Parse ./../tests/basic/13.sample > ./../build/lex/output/basic/13.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/13.sample > ./../build/parse/output/basic/13.out
+
+Now processing basic:14
+java -cp ./../src/lexer/ Parse ./../tests/basic/14.sample > ./../build/lex/output/basic/14.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/14.sample > ./../build/parse/output/basic/14.out
+
+Now processing basic:14
+java -cp ./../src/lexer/ Parse ./../tests/basic/14.sample > ./../build/lex/output/basic/14.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/14.sample > ./../build/parse/output/basic/14.out
+
+Now processing basic:15
+java -cp ./../src/lexer/ Parse ./../tests/basic/15.sample > ./../build/lex/output/basic/15.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/15.sample > ./../build/parse/output/basic/15.out
+
+Now processing basic:15
+java -cp ./../src/lexer/ Parse ./../tests/basic/15.sample > ./../build/lex/output/basic/15.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/15.sample > ./../build/parse/output/basic/15.out
+
+Now processing basic:16
+java -cp ./../src/lexer/ Parse ./../tests/basic/16.sample > ./../build/lex/output/basic/16.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/16.sample > ./../build/parse/output/basic/16.out
+
+Now processing basic:16
+java -cp ./../src/lexer/ Parse ./../tests/basic/16.sample > ./../build/lex/output/basic/16.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/16.sample > ./../build/parse/output/basic/16.out
+
+Now processing basic:17
+java -cp ./../src/lexer/ Parse ./../tests/basic/17.sample > ./../build/lex/output/basic/17.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/17.sample > ./../build/parse/output/basic/17.out
+
+Now processing basic:17
+java -cp ./../src/lexer/ Parse ./../tests/basic/17.sample > ./../build/lex/output/basic/17.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/17.sample > ./../build/parse/output/basic/17.out
+
+Now processing basic:18
+java -cp ./../src/lexer/ Parse ./../tests/basic/18.sample > ./../build/lex/output/basic/18.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/18.sample > ./../build/parse/output/basic/18.out
+
+Now processing basic:18
+java -cp ./../src/lexer/ Parse ./../tests/basic/18.sample > ./../build/lex/output/basic/18.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/18.sample > ./../build/parse/output/basic/18.out
+
+Now processing basic:19
+java -cp ./../src/lexer/ Parse ./../tests/basic/19.sample > ./../build/lex/output/basic/19.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/19.sample > ./../build/parse/output/basic/19.out
+
+Now processing basic:19
+java -cp ./../src/lexer/ Parse ./../tests/basic/19.sample > ./../build/lex/output/basic/19.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/19.sample > ./../build/parse/output/basic/19.out
+
+Now processing basic:2
+java -cp ./../src/lexer/ Parse ./../tests/basic/2.sample > ./../build/lex/output/basic/2.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/2.sample > ./../build/parse/output/basic/2.out
+
+Now processing basic:2
+java -cp ./../src/lexer/ Parse ./../tests/basic/2.sample > ./../build/lex/output/basic/2.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/2.sample > ./../build/parse/output/basic/2.out
+
+Now processing basic:20
+java -cp ./../src/lexer/ Parse ./../tests/basic/20.sample > ./../build/lex/output/basic/20.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/20.sample > ./../build/parse/output/basic/20.out
+
+Now processing basic:20
+java -cp ./../src/lexer/ Parse ./../tests/basic/20.sample > ./../build/lex/output/basic/20.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/20.sample > ./../build/parse/output/basic/20.out
+
+Now processing basic:21
+java -cp ./../src/lexer/ Parse ./../tests/basic/21.sample > ./../build/lex/output/basic/21.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/21.sample > ./../build/parse/output/basic/21.out
+
+Now processing basic:21
+java -cp ./../src/lexer/ Parse ./../tests/basic/21.sample > ./../build/lex/output/basic/21.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/21.sample > ./../build/parse/output/basic/21.out
+
+Now processing basic:22
+java -cp ./../src/lexer/ Parse ./../tests/basic/22.sample > ./../build/lex/output/basic/22.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/22.sample > ./../build/parse/output/basic/22.out
+
+Now processing basic:22
+java -cp ./../src/lexer/ Parse ./../tests/basic/22.sample > ./../build/lex/output/basic/22.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/22.sample > ./../build/parse/output/basic/22.out
+
+Now processing basic:23
+java -cp ./../src/lexer/ Parse ./../tests/basic/23.sample > ./../build/lex/output/basic/23.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/23.sample > ./../build/parse/output/basic/23.out
+
+Now processing basic:23
+java -cp ./../src/lexer/ Parse ./../tests/basic/23.sample > ./../build/lex/output/basic/23.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/23.sample > ./../build/parse/output/basic/23.out
+
+Now processing basic:24
+java -cp ./../src/lexer/ Parse ./../tests/basic/24.sample > ./../build/lex/output/basic/24.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/24.sample > ./../build/parse/output/basic/24.out
+
+Now processing basic:24
+java -cp ./../src/lexer/ Parse ./../tests/basic/24.sample > ./../build/lex/output/basic/24.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/24.sample > ./../build/parse/output/basic/24.out
+
+Now processing basic:25
+java -cp ./../src/lexer/ Parse ./../tests/basic/25.sample > ./../build/lex/output/basic/25.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/25.sample > ./../build/parse/output/basic/25.out
+
+Now processing basic:25
+java -cp ./../src/lexer/ Parse ./../tests/basic/25.sample > ./../build/lex/output/basic/25.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/25.sample > ./../build/parse/output/basic/25.out
+
+Now processing basic:3
+java -cp ./../src/lexer/ Parse ./../tests/basic/3.sample > ./../build/lex/output/basic/3.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/3.sample > ./../build/parse/output/basic/3.out
+
+Now processing basic:3
+java -cp ./../src/lexer/ Parse ./../tests/basic/3.sample > ./../build/lex/output/basic/3.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/3.sample > ./../build/parse/output/basic/3.out
+
+Now processing basic:4
+java -cp ./../src/lexer/ Parse ./../tests/basic/4.sample > ./../build/lex/output/basic/4.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/4.sample > ./../build/parse/output/basic/4.out
+
+Now processing basic:4
+java -cp ./../src/lexer/ Parse ./../tests/basic/4.sample > ./../build/lex/output/basic/4.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/4.sample > ./../build/parse/output/basic/4.out
+
+Now processing basic:5
+java -cp ./../src/lexer/ Parse ./../tests/basic/5.sample > ./../build/lex/output/basic/5.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/5.sample > ./../build/parse/output/basic/5.out
+
+Now processing basic:5
+java -cp ./../src/lexer/ Parse ./../tests/basic/5.sample > ./../build/lex/output/basic/5.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/5.sample > ./../build/parse/output/basic/5.out
+
+Now processing basic:6
+java -cp ./../src/lexer/ Parse ./../tests/basic/6.sample > ./../build/lex/output/basic/6.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/6.sample > ./../build/parse/output/basic/6.out
+
+Now processing basic:6
+java -cp ./../src/lexer/ Parse ./../tests/basic/6.sample > ./../build/lex/output/basic/6.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/6.sample > ./../build/parse/output/basic/6.out
+
+Now processing basic:7
+java -cp ./../src/lexer/ Parse ./../tests/basic/7.sample > ./../build/lex/output/basic/7.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/7.sample > ./../build/parse/output/basic/7.out
+
+Now processing basic:7
+java -cp ./../src/lexer/ Parse ./../tests/basic/7.sample > ./../build/lex/output/basic/7.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/7.sample > ./../build/parse/output/basic/7.out
+
+Now processing basic:8
+java -cp ./../src/lexer/ Parse ./../tests/basic/8.sample > ./../build/lex/output/basic/8.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/8.sample > ./../build/parse/output/basic/8.out
+
+Now processing basic:8
+java -cp ./../src/lexer/ Parse ./../tests/basic/8.sample > ./../build/lex/output/basic/8.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/8.sample > ./../build/parse/output/basic/8.out
+
+Now processing basic:9
+java -cp ./../src/lexer/ Parse ./../tests/basic/9.sample > ./../build/lex/output/basic/9.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/9.sample > ./../build/parse/output/basic/9.out
+
+Now processing basic:9
+java -cp ./../src/lexer/ Parse ./../tests/basic/9.sample > ./../build/lex/output/basic/9.out
+java -cp ./../src/parser/ Compiler ./../tests/basic/9.sample > ./../build/parse/output/basic/9.out
+
+Now processing mixed:test1
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test1.txt > ./../build/lex/output/mixed/test1.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test1.txt > ./../build/parse/output/mixed/test1.out
+
+Now processing mixed:test10
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test10.txt > ./../build/lex/output/mixed/test10.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test10.txt > ./../build/parse/output/mixed/test10.out
+
+Now processing mixed:test11
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test11.txt > ./../build/lex/output/mixed/test11.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test11.txt > ./../build/parse/output/mixed/test11.out
+
+Now processing mixed:test12
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test12.txt > ./../build/lex/output/mixed/test12.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test12.txt > ./../build/parse/output/mixed/test12.out
+
+Now processing mixed:test2
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test2.txt > ./../build/lex/output/mixed/test2.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test2.txt > ./../build/parse/output/mixed/test2.out
+
+Now processing mixed:test3
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test3.txt > ./../build/lex/output/mixed/test3.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test3.txt > ./../build/parse/output/mixed/test3.out
+
+Now processing mixed:test4
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test4.txt > ./../build/lex/output/mixed/test4.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test4.txt > ./../build/parse/output/mixed/test4.out
+
+Now processing mixed:test4_1
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test4_1.txt > ./../build/lex/output/mixed/test4_1.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test4_1.txt > ./../build/parse/output/mixed/test4_1.out
+
+Now processing mixed:test5
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test5.txt > ./../build/lex/output/mixed/test5.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test5.txt > ./../build/parse/output/mixed/test5.out
+
+Now processing mixed:test6
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test6.txt > ./../build/lex/output/mixed/test6.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test6.txt > ./../build/parse/output/mixed/test6.out
+
+Now processing mixed:test7
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test7.txt > ./../build/lex/output/mixed/test7.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test7.txt > ./../build/parse/output/mixed/test7.out
+
+Now processing mixed:test8
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test8.txt > ./../build/lex/output/mixed/test8.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test8.txt > ./../build/parse/output/mixed/test8.out
+
+Now processing mixed:test9
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test9.txt > ./../build/lex/output/mixed/test9.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test9.txt > ./../build/parse/output/mixed/test9.out
+
+Now processing mixed:test9_1
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test9_1.txt > ./../build/lex/output/mixed/test9_1.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test9_1.txt > ./../build/parse/output/mixed/test9_1.out
+
+Now processing mixed:test9_2
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test9_2.txt > ./../build/lex/output/mixed/test9_2.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test9_2.txt > ./../build/parse/output/mixed/test9_2.out
+
+Now processing mixed:test9_aa
+java -cp ./../src/lexer/ Parse ./../tests/mixed/test9_aa.txt > ./../build/lex/output/mixed/test9_aa.out
+java -cp ./../src/parser/ Compiler ./../tests/mixed/test9_aa.txt > ./../build/parse/output/mixed/test9_aa.out
